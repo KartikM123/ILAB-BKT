@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{74DF93D0-13D8-402A-9A43-4092780A8790}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>BKTSRC</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)KnowledgeLevels.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Skill.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModelParam.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exercise.cs" />
+  </ItemGroup>
+</Project>

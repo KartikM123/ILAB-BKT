@@ -3,33 +3,20 @@ using Systems.Collections;
 
 namespace BKT;
 
+//Main source: https://github.com/CAHLR/pyBKT
 public class Skill {
 
     //standard characteristics
-    public string Name;
-    
-    //BKT params
-    protected float pLo;
-    protected float pSlip;
-    protected float pGuess;
-    protected float pTransit;
-    protected float pKnown; //probability concept known
+    public string name;
+    public string userID;
 
-    //Affective state params -- TODO
-    protected List<float> AffState;
+    ModelParam modelParameters;
 
     //D: init skill
     //R: new skill object
-    public Skill (string Name){
-        this.Name = name;
-
-        this.pLo = 0;
-        this.pSlip = 0;
-        this.pGuess = 0;
-        this.pTransit = 0;
-        this.pKnown = 0;
-
-        AffState = new List<float>();
+    public Skill (string iName, string iUserID){
+        name = iName;
+        userID = iUserID;
     }
 
     //D: update affective state (Tom TODO)
@@ -41,13 +28,25 @@ public class Skill {
     //D: Get knowledge state
     //R: ""
     public void getKnowledgeState(){
-        return this.pKnown;
+        return modelParameters.pKnown;
     }
 
+    //D: Get user data
+    private float [][] getData ()
+    {
+        //for testing purposes
+        return TestUtil.TestData();
+    }
     //D: Update knowledge state using BKT based on correct Score vs. max Score
     //R: updated knowledge variables
     public void updateKnowledge(float correctScore, float maxScore){
-        //TODO
+        //Get Model
+        float[][] userExperience = getData();
+
+        //Calculate member variables
+        Dictionary<string, float[]> modelParameters = new Dictionary();
+
+
     }
     
 }
