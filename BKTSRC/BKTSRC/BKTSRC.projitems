@@ -16,5 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Util.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestUtil.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exercise.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StudyData.cs" />
   </ItemGroup>
 </Project>

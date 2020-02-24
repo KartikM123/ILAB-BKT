@@ -1,21 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.ItemProperties.BKTSRC FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BKTSRC/Skill.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BKTSRC/StudyData.cs">
     <Files>
       <File FileName="BKTSRC/MyClass.cs" Line="8" Column="10" />
-      <File FileName="BKTSRC/KnowledgeLevels.cs" Line="11" Column="34" />
-      <File FileName="BKTSRC/Skill.cs" Line="4" Column="2" />
-      <File FileName="BKTSRC/ModelParam.cs" />
-      <File FileName="BKTSRC/Util.cs" />
-      <File FileName="BKTSRC/TestUtil.cs" />
-      <File FileName="BKTSRC/Exercise.cs" />
+      <File FileName="BKTSRC/KnowledgeLevels.cs" Line="19" Column="10" />
+      <File FileName="BKTSRC/Skill.cs" Line="22" Column="10" />
+      <File FileName="BKTSRC/ModelParam.cs" Line="11" Column="24" />
+      <File FileName="BKTSRC/Util.cs" Line="36" Column="24" />
+      <File FileName="BKTSRC/TestUtil.cs" Line="23" Column="1" />
+      <File FileName="BKTSRC/Exercise.cs" Line="24" Column="10" />
+      <File FileName="BKTSRC/StudyData.cs" Line="6" Column="20" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BKTSRC" expanded="True">
             <Node name="BKTSRC" expanded="True">
-              <Node name="Skill.cs" selected="True" />
+              <Node name="StudyData.cs" selected="True" />
             </Node>
           </Node>
         </State>

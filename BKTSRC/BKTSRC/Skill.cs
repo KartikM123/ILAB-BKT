@@ -10,6 +10,7 @@ namespace BKTSRC
         public string name;
         public string userID;
 
+        //Model Parameters which will be further fit
         ModelParam modelParameters;
 
         //D: init skill
@@ -35,7 +36,7 @@ namespace BKTSRC
         }
 
         //D: Get user data
-        private float[][] getData()
+        private StudyData getData()
         {
             //for testing purposes
             return TestUtil.TestData();
@@ -45,10 +46,10 @@ namespace BKTSRC
         public void updateKnowledge(float correctScore, float maxScore)
         {
             //Get Model
-            float[][] userExperience = getData();
+            StudyData userExperience = getData();
 
             //Calculate member variables
-            Dictionary<string, float[]> modelParameters = new Dictionary();
+            this.modelParameters = ModelParam()
 
 
         }
