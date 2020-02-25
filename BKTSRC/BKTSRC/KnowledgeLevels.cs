@@ -4,25 +4,43 @@ using Systems.Collections;
 namespace BKTSRC {
     public class KnowledgeLevels
     {
+        public string userId;
 
         //Initialize Skills to be evaluated
         public Skill EnvComfort;
         public Skill IfCondition;
         public Skill LogicExpression;
 
-        //Interaction Histoxry (optional usage)
+        //Interaction History (optional usage)
         public IList <Exercise> InteractionHistory;
 
-        //D: Init
+        //D: Init Main Code Flow
         //R: New SingletonObject
-        public KnowledgeLevels()
+        public KnowledgeLevels(string iuserId, float pLoEnv, float pLoIf, float pLoLogic)
         {
+            this.userId = iuserId;
             InteractionHistory = new List<Exercise>();
+
+            this.EnvComfort = new Skill("EnvComfort", this.userId, pLoEnv);
+            this.IfCondition = new Skill("IfCondition", this.userId, pLoIf);
+            this.LogicExpression = new Skill("LogicExpression", this.userId, pLoLogic);
+        }
+
+        //D: Init test
+        //R: new Object
+        public KnowledgeLevels(float pLoEnv, float pLoIf, float pLoLogic)
+		{
+            this.userId = "test";
+
+
+            this.EnvComfort = new Skill("EnvComfort", pLoEnv, new TestDataManager("test"));
+            this.IfCondition = new Skill("IfCondition", pLoIf, new TestDataManager("test"));
+            this.LogicExpression = new Skill("LogicExpression", pLoLogic, new TestDataManager("test"));
         }
 
         //D: Use PFA to estimate performance on Exercise (summative) based on Skills tested
         //R: 0-1 probability student will be able to complete exercise
-        float estimatePerformance(Exercise e)
+        public float estimatePerformance(Exercise e)
         {
             float correctness = 0.f;
             float maxScore = 0.f;
@@ -54,7 +72,7 @@ namespace BKTSRC {
 
         //D: estimate test score based on multiple exercises
         //R: 0-1 pct expected to recieve on test
-        float estimateTestScore(List<Exercise> exercises)
+        public float estimateTestScore(List<Exercise> exercises)
         {
             float sum = 0.f;
             foreach (Exercise e in exercises)
@@ -66,7 +84,7 @@ namespace BKTSRC {
 
         //D: update skills based on execise
         //R: N/A
-        void updateSkill(Execise e)
+        public void updateSkill(Execise e)
         {
             foreach (KeyValuePair<string, int> pair in e.SkillsCorrect)
             {

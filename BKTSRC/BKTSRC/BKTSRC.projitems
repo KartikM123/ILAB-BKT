@@ -14,8 +14,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Skill.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModelParam.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TestUtil.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exercise.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StudyData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDataManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TestDataManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataManager.cs" />
   </ItemGroup>
 </Project>

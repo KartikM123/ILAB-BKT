@@ -9,24 +9,31 @@ namespace BKTSRC
         //standard characteristics
         public string name;
         public string userID;
+        public float pLo; //probability initally known
 
         //Model Parameters which will be further fit
         ModelParam modelParameters;
 
-        //D: init skill
+        //Data Manager
+        IDataManager dataManager;
+
+        //D: init skill main code flow
         //R: new skill object
-        public Skill(string iName, string iUserID)
+        public Skill(string iName, string iUserID, float pLo = 0.f)
         {
-            name = iName;
-            userID = iUserID;
+            this.name = iName;
+            this.userID = iUserID;
+            this.pLo = pLo;
+            this.dataManager = new DataManager(this.userID);
         }
 
-        //D: update affective state (Tom TODO)
-        //R: updated aff state variable
-        public void setAffectiveState(List<float> affState)
-        {
-            this.AffState = affState;
-        }
+        public Skill(string iName, float pLo, IDataManager idataManager)
+		{
+            this.name = name;
+            this.userID = "test";
+            this.dataManager = idataManager;
+            this.pLo = pLo;
+		}
 
         //D: Get knowledge state
         //R: ""
@@ -35,23 +42,23 @@ namespace BKTSRC
             return modelParameters.pKnown;
         }
 
-        //D: Get user data
-        private StudyData getData()
-        {
-            //for testing purposes
-            return TestUtil.TestData();
-        }
         //D: Update knowledge state using BKT based on correct Score vs. max Score
         //R: updated knowledge variables
         public void updateKnowledge(float correctScore, float maxScore)
         {
             //Get Model
-            StudyData userExperience = getData();
+            StudyData studyData = dataManager.GetData();
 
             //Calculate member variables
-            this.modelParameters = ModelParam()
+            this.modelParameters = ModelParam(studyData.num_resources, studyData.num_subparts, this.pLo);
 
+            //Tune this
+            int number_of_fits = 5;
 
+            for(int i = 0; i < number_of_fits; i++)
+			{
+
+			}
         }
 
     }

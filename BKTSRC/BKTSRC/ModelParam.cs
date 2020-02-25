@@ -5,18 +5,18 @@ namespace BKTSRC
     {
 
         //input variables
-        protected int num_resources = 0; //number of total questions asked
-        protected int num_subparts = 0; 
+        public int num_resources = 0; //number of total questions asked
+        public int num_subparts = 0; 
 
-        //output params
-        protected float pLo; //P concept already known
-        protected float pSlip; //P answer was wrong given known
-        protected float pGuess; //P an answer was right given not known
-        protected float pTransit; //P knowing given not known
-        protected float pForget; //P not known given knowing
+        //output variables
+        public float pLo; //P concept already known
+        public float pSlip; //P answer was wrong given known
+        public float pGuess; //P an answer was right given not known
+        public float pTransit; //P knowing given not known
+        public float pForget; //P not known given knowing
         public float pKnown; //P concept known
 
-        //model variables
+        //model params
         public float[][][] As; //P concept changed from not known to known
         public float[] learnsMatrix; //P learned at n resource
         public float[] forgetsMatrix; //P forgotten at n resource
@@ -25,7 +25,12 @@ namespace BKTSRC
         public float[] slipsMatrix; // P slipped at m question
 
 
-        //D: init 
+        /// <summary>
+		/// Init
+		/// </summary>
+		/// <param name="inum_resources">number of resources</param>
+		/// <param name="inum_subparts">number of subparts</param>
+		/// <param name="ipLo">initial knowledge level</param>
         public ModelParam(int inum_resources, int inum_subparts, float ipLo)
         {
             this.num_resources = inum_resources;
@@ -41,7 +46,28 @@ namespace BKTSRC
             initParams();
         }
 
-        //D: init probability of retained knowledge ("As")
+        /// <summary>
+		/// Manually set BKT variables for test
+		/// </summary>
+		/// <param name="pSlip">P wrong if known state</param>
+		/// <param name="pGuess">P right if unknown state</param>
+		/// <param name="pTransit">P of applying knowledge to the next subpart</param>
+		/// <param name="pForget">P forgetting concept</param>
+		/// <param name="pKnown">P is known</param>
+        public void setVariables(float pSlip, float pGuess, float pTransit, float pForget, float pKnown)
+		{
+            this.pSlip = pSlip;
+            this.pGuess = pGuess;
+            this.pTransit = pTransit;
+            this.pForget = pForget;
+            this.pKnown = pKnown;
+
+            initParams();
+		}
+
+        /// <summary>
+		/// Init overall knowledge level
+		/// </summary>
         public void initAs() {
             this.As = new float[this.num_resources, 2, 2];
             this.As = Util.init3D(this.num_resources, 2, 2, 0.f);
@@ -52,7 +78,9 @@ namespace BKTSRC
             }
         }
 
-        //D: Wrapper which initializes all parameters
+        /// <summary>
+		/// init BKT parameters
+		/// </summary>
         public void initParams() {
             //1. Init variables that are evaluated per resource checkpoint
             //As at a point will represent knowledge level at that resource

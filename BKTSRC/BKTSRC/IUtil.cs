@@ -1,9 +1,9 @@
 ﻿using System;
 namespace BKTSRC
 {
-    public class MyClass
+    public class IUtil
     {
-        public MyClass()
+        public IUtil()
         {
         }
     }
