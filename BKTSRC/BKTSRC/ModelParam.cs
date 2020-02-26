@@ -66,7 +66,7 @@ namespace BKTSRC
 		}
 
         /// <summary>
-		/// Init overall knowledge level
+		/// Init probability transition between knowning and not known & vice versa
 		/// </summary>
         public void initAs() {
             this.As = new float[this.num_resources, 2, 2];
@@ -74,6 +74,9 @@ namespace BKTSRC
 
             for (int i = 0; i < this.num_resources; i++)
             {
+                //update As per resource (resource provides checkpoint for reevaluating total knowledge levels)
+                //we want to keep a consistent pTransit and pForget so keep the knowledge level at each state constant
+                //2x2 each represents a permuation of transit/guess on known/not known state
                 this.As[i] = Util.transpose2D(new float [2,2] {{ 1 - this.pTransit, this.pTransit}, { 1 - this.pForget, pForget}});
             }
         }
@@ -86,13 +89,14 @@ namespace BKTSRC
             //As at a point will represent knowledge level at that resource
             initAs();
 
-            //represent how much knowledge at each learn and forget level
+            //represent prob learn or forget at each resource checkpoint at each learn and forget level
             this.learnsMatrix = Util.init1D(num_resources, this.pTransit);
             this.forgetsMatrix = Util.init1D(num_resources, this.pForget);
 
             this.priorMatrix = new float [2][1]{{ 1 - this.pLo}, { this.pLo} };
 
             //2. Init variables that are evaluated at every subpart answer
+            //probability that an answer is a slip or a guess. 
             this.slipsMatrix = Util.init1D(num_subparts, this.pSlip);
             this.guessesMatrix = Util.init1D(num_subparts, this.pGuess);
         }

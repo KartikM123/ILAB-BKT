@@ -26,6 +26,23 @@ namespace BKTSRC
         public StudyData(
             int inum_resources,
             int inum_subparts,
+            float[][] iinteractionHistory)
+        {
+            this.interactionHistory = iinteractionHistory;
+            this.num_resources = inum_resources;
+            this.num_subparts = inum_subparts;
+            this.affectiveState = null;
+        }
+        /// <summary>
+		/// 
+		/// </summary>
+		/// <param name="inum_resources"></param>
+		/// <param name="inum_subparts"></param>
+		/// <param name="iinteractionHistory"></param>
+		/// <param name="iaffectiveState"></param>
+        public StudyData(
+            int inum_resources,
+            int inum_subparts,
             float[][] iinteractionHistory,
             float [][] iaffectiveState)
         {

@@ -42,20 +42,18 @@ namespace BKTSRC
             return modelParameters.pKnown;
         }
 
-        //D: Update knowledge state using BKT based on correct Score vs. max Score
+        //D: Update knowledge state using BKT based on history of data. Input number of fits of model (should tune)
         //R: updated knowledge variables
-        public void updateKnowledge(float correctScore, float maxScore)
+        public void updateKnowledge(int number_of_fits = 5)
         {
+
             //Get Model
             StudyData studyData = dataManager.GetData();
 
             //Calculate member variables
             this.modelParameters = ModelParam(studyData.num_resources, studyData.num_subparts, this.pLo);
 
-            //Tune this
-            int number_of_fits = 5;
-
-            for(int i = 0; i < number_of_fits; i++)
+            for (int i = 0; i < number_of_fits; i++)
 			{
 
 			}

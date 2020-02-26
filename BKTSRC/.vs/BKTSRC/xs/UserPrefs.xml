@@ -1,21 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.ItemProperties.BKTSRC FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BKTSRC/IDataManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BKTSRC/TestDataManager.cs">
     <Files>
-      <File FileName="BKTSRC/KnowledgeLevels.cs" Line="22" Column="39" />
+      <File FileName="BKTSRC/KnowledgeLevels.cs" Line="40" Column="1" />
       <File FileName="BKTSRC/Skill.cs" Line="58" Column="1" />
-      <File FileName="BKTSRC/IDataManager.cs" Line="22" Column="58" />
+      <File FileName="BKTSRC/IDataManager.cs" Line="68" Column="1" />
       <File FileName="BKTSRC/StudyData.cs" Line="25" Column="18" />
-      <File FileName="BKTSRC/DataManager.cs" Line="8" Column="87" />
-      <File FileName="BKTSRC/ModelParam.cs" Line="9" Column="15" />
-      <File FileName="BKTSRC/Util.cs" Line="1" Column="1" />
+      <File FileName="BKTSRC/ModelParam.cs" Line="104" Column="2" />
+      <File FileName="BKTSRC/Util.cs" Line="74" Column="32" />
+      <File FileName="BKTSRC/TestDataManager.cs" Line="12" Column="31" />
+      <File FileName="BKTSRC/MyClass.cs" Line="7" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BKTSRC" expanded="True">
             <Node name="BKTSRC" expanded="True">
-              <Node name="IDataManager.cs" selected="True" />
+              <Node name="TestDataManager.cs" selected="True" />
             </Node>
           </Node>
         </State>
