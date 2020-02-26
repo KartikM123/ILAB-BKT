@@ -2,6 +2,10 @@
 using Systems.Collections;
 
 namespace BKTSRC {
+
+    /// <summary>
+	/// Tracks knowledge levels of multiple skills and models relation
+	/// </summary>
     public class KnowledgeLevels
     {
         public string userId;

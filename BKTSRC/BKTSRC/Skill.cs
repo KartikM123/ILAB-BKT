@@ -3,6 +3,9 @@ using System.Collections;
 namespace BKTSRC
 {
     //Main source: https://github.com/CAHLR/pyBKT
+    /// <summary>
+	/// Calculates specific skill knowledge level
+	/// </summary>
     public class Skill
     {
 
@@ -51,6 +54,22 @@ namespace BKTSRC
         public void getKnowledgeState()
         {
             return modelParameters.pKnown;
+        }
+
+        /// <summary>
+		/// Initialize random p Values before fitting the model
+		/// </summary>
+		/// <param name="num_resources">Number of resources in observation</param>
+		/// <param name="num_subparts">Number of subparts in observation</param>
+        protected void random_model_generator(int num_resources = 1, int num_subparts = 1)
+        {
+            float[][] tile_trans = NPUtil.duplicate2Dto3D(new float[2][2] { { 20, 4 }, { 1, 20 } }, num_resources);
+
+            float[][] given_notknown_prior = NPUtil.tile2D(new float[2][1] { { 5 }, { 0.5 } }, 1, num_subparts);
+            float[][] given_known_prior = NPUtil.tile2D(new float[2][1] { { 0.5 }, { 5 } }, 1, num_subparts);
+            float[][] pi0_prior = new float[2, 1] { { 100 }, { 1 } };
+
+
         }
 
         //D: Update knowledge state using BKT based on history of data. Input number of fits of model (should tune)

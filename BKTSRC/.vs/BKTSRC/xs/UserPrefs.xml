@@ -1,23 +1,23 @@
 ﻿<Properties>
   <MonoDevelop.Ide.ItemProperties.BKTSRC FirstBuild="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BKTSRC/ModelParam.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BKTSRC/StudyData.cs">
     <Files>
-      <File FileName="BKTSRC/KnowledgeLevels.cs" Line="40" Column="1" />
-      <File FileName="BKTSRC/Skill.cs" Line="35" Column="33" />
-      <File FileName="BKTSRC/StudyData.cs" Line="35" Column="10" />
-      <File FileName="BKTSRC/ModelParam.cs" Line="5" Column="6" />
-      <File FileName="BKTSRC/Util.cs" Line="74" Column="32" />
-      <File FileName="BKTSRC/DataManager.cs" Line="17" Column="1" />
+      <File FileName="BKTSRC/KnowledgeLevels.cs" Line="7" Column="68" />
+      <File FileName="BKTSRC/Skill.cs" Line="66" Column="42" />
+      <File FileName="BKTSRC/StudyData.cs" Line="5" Column="52" />
+      <File FileName="BKTSRC/ModelParam.cs" Line="76" Column="29" />
+      <File FileName="BKTSRC/Util.cs" Line="101" Column="40" />
+      <File FileName="BKTSRC/DataManager.cs" Line="5" Column="46" />
       <File FileName="BKTSRC/MyClass.cs" Line="1" Column="1" />
-      <File FileName="BKTSRC/IDataManager.cs" Line="1" Column="1" />
-      <File FileName="BKTSRC/Exercise.cs" Line="1" Column="1" />
+      <File FileName="BKTSRC/IDataManager.cs" Line="7" Column="30" />
+      <File FileName="BKTSRC/GammaDist.cs" Line="115" Column="25" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BKTSRC" expanded="True">
             <Node name="BKTSRC" expanded="True">
-              <Node name="ModelParam.cs" selected="True" />
+              <Node name="StudyData.cs" selected="True" />
             </Node>
           </Node>
         </State>

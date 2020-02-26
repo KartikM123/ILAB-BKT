@@ -1,6 +1,9 @@
 ﻿using System;
 namespace BKTSRC
 {
+    /// <summary>
+	/// Contains all study data which will be analyzed
+	/// </summary>
     public class StudyData
     {
         /*
@@ -22,7 +25,12 @@ namespace BKTSRC
         //number of subparts ocmpleted throughout interaction
         public int num_subparts;
 
-        //D: init
+        /// <summary>
+		/// Init studydata no affective state
+		/// </summary>
+		/// <param name="inum_resources">number of resources possible</param>
+		/// <param name="inum_subparts">number of subparts to question</param>
+		/// <param name="iinteractionHistory">interaction history</param>
         public StudyData(
             int inum_resources,
             int inum_subparts,
@@ -34,12 +42,12 @@ namespace BKTSRC
             this.affectiveState = null;
         }
         /// <summary>
-		/// 
+		/// Intialize studydata with affective state
 		/// </summary>
-		/// <param name="inum_resources"></param>
-		/// <param name="inum_subparts"></param>
-		/// <param name="iinteractionHistory"></param>
-		/// <param name="iaffectiveState"></param>
+		/// <param name="inum_resources">number of resources possible</param>
+		/// <param name="inum_subparts">number of subparts to question</param>
+		/// <param name="iinteractionHistory">interaction history</param>
+		/// <param name="iaffectiveState">additional parameters detailing affective state</param>
         public StudyData(
             int inum_resources,
             int inum_subparts,

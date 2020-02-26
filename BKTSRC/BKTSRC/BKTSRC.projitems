@@ -19,5 +19,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)IDataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestDataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GammaDist.cs" />
   </ItemGroup>
 </Project>

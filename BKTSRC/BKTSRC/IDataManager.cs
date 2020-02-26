@@ -126,17 +126,17 @@ namespace BKTSRC
             int num_resources = modelParam.num_resources;
 
             //total size of observation sequence
-            int[] observation_sequences_lengths = Util.init1D(num_students, observations_per_student);
+            int[] observation_sequences_lengths = NPUtil.init1D(num_students, observations_per_student);
 
             //consider total observations made at a final step
-            int total_observations = Util.sumArray(observation_sequences);
+            int total_observations = NPUtil.sumArray(observation_sequences);
 
             //every observation should have a random resource associated with it
             //(resource type shouldn't matter in our eval)
-            int[] resources = Util.initRandom1D(1, num_resources + 1, total_observations);
+            int[] resources = NPUtil.initRandom1D(1, num_resources + 1, total_observations);
 
             //calculate total interactions at every steps
-            int[] starts = Util.cumSum1D(observation_sequences_lengths);
+            int[] starts = NPUtil.cumSum1D(observation_sequences_lengths);
             for(int i = 0; i< starts.Length; i++)
 			{
                 //calculate total non-unique interactions at every step
