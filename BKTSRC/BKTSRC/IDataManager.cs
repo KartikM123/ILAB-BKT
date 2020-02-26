@@ -24,11 +24,22 @@ namespace BKTSRC
         }
 
         /// <summary>
-		/// Get specific data based on skillname
+		/// Get num_resources and num_parts recorded for a skill
 		/// </summary>
 		/// <param name="iskillName">Skill which we want to see tested</param>
 		/// <returns></returns>
-        public virtual StudyData GetData(string iskillName);
+        public virtual StudyData GetDataOccurences(string iskillName);
+
+
+        /// <summary>
+		/// Get Data from DB based on student preferences
+		/// </summary>
+		/// <param name="iskillName">name of skill being requested</param>
+		/// <param name="modelParam">parameter models to use in EM</param>
+		/// <param name="num_students">number of students being analyzed (optional)</param>
+		/// <param name="observations_per_student">observations per student (optional)</param>
+		/// <returns></returns>
+        public virtual StudyData GetData(string iskillName, ModelParam modelParam, int num_students = 50, int observations_per_student = 100);
 
 
         /// <summary>
@@ -47,7 +58,7 @@ namespace BKTSRC
             int[] resources,
             int total_observations)
 		{
-            int[][] all_stateseqs = new int[1, bigT];
+            int[][] all_stateseqs = new int[total_observations];
             float[][] all_data = new float[modelParam.num_subparts, total_observations];
             int num_sequences = starts.Length;
             int num_slips = modelParam.slipsMatrix.Length;
@@ -74,23 +85,29 @@ namespace BKTSRC
 				{
                     var rand = new Random();
                     //will be more likely for lower knowdge levels which would mean highter pLo
-                    all_stateseqs[0][start_location + seq] = nextstate_knowledgeLevel[0] < (((float)rand.Next()) / ((float) RAND_MAX));
+                    //will return 1 if unknown state
+                    all_stateseqs[start_location + seq] = nextstate_knowledgeLevel[0] < (((float)rand.Next()) / ((float) RAND_MAX));
 
                     for (int n = 0; n < modelParam.num_subparts; n++)
 					{
-                        if (all_stateseqs[0][start_location + seq])
+                        if (all_stateseqs[start_location + seq])
 						{
+                            //if is incorrect, see probability of slip
                             all_data[n][start_location + seq] = modelParam.slipsMatrix[n];
 						}
                         else
 						{
+                            //if correct, see probability it was not a guess
                             all_data[n][start_location + seq] = (1 - modelParam.guessesMatrix[n] < ((float)rand.Next() / (float)RAND_MAX));
 						}
 					}
 
-                    nextstate_knowledgeLevel[0] = As[0][2 * (resources[start_location + seq] - 1 + all_stateseqs[0][start_location + seq])]; 
-				}
-			}
+                    //update knowledge levels
+                    nextstate_knowledgeLevel[0] = As[0][2 * (resources[start_location + seq] - 1 + all_stateseqs[start_location + seq])];
+                    nextstate_knowledgeLevel[1] = As[1][2 * (resources[start_location + seq] - 1 + all_stateseqs[start_location + seq])];
+
+                }
+            }
 
             StudyData studyData = new StudyData(modelParam.num_resources, modelParam.num_subparts, all_data);
             return studyData;
@@ -123,8 +140,8 @@ namespace BKTSRC
                 stars[i] = starts[i] - observation_sequences_lengths[i];
 			}
 
-            StudyData studyData = this.CreateIdealModel(modelParam, starts, observation_sequences_lengths, resources, total_observations);
-
+            return this.CreateIdealModel(modelParam, starts, observation_sequences_lengths, resources, total_observations);
+          
 		}
     }
 }

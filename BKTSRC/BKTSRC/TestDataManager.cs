@@ -3,7 +3,8 @@ namespace BKTSRC
 {
     public class TestDataManager : IDataManager
     {
-        public override StudyData TestData()
+        /// <inheritdoc/>
+        public override StudyData GetDataOccurences(string iskillname)
         {
             //data in format (column tried, answer recieved)
             int totalExercises = 100;
@@ -27,5 +28,11 @@ namespace BKTSRC
             StudyData studyData = new StudyData(totalExercises, totalExercises, sampleData, affState);
             return sampleData;
         }
-    }
+
+        /// <inheritdoc/>
+		public override StudyData GetData(string iskillName, ModelParam modelParam, int num_students = 50, int observations_per_student = 100)
+		{
+			return base.GetIdealModel(modelParam, num_students, observations_per_student);
+		}
+	}
 }
