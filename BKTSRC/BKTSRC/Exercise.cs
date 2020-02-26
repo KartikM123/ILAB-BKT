@@ -3,6 +3,9 @@ using System.Collections;
 
 namespace BKTSRC
 {
+    /// <summary>
+	/// Encapsulates high level details of an individual exercise
+	/// </summary>
     public class Exercise
     {
 

@@ -1,6 +1,9 @@
 ﻿using System;
 namespace BKTSRC
 {
+    /// <summary>
+	/// Retrieves Data in Production environment
+	/// </summary>
     public class DataManager : IDataManager
     {
         ///<inheritdoc/>

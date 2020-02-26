@@ -1,6 +1,9 @@
 ﻿using System;
 namespace BKTSRC
 {
+    /// <summary>
+	/// Works as a medium for retrieval of user data
+	/// </summary>
     public class IDataManager
     {
         /// <summary>
