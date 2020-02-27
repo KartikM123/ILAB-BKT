@@ -63,12 +63,13 @@ namespace BKTSRC
 		/// <param name="num_subparts">Number of subparts in observation</param>
         protected void random_model_generator(int num_resources = 1, int num_subparts = 1)
         {
-            float[][] tile_trans = NPUtil.duplicate2Dto3D(new float[2][2] { { 20, 4 }, { 1, 20 } }, num_resources);
+            float[][][] tile_trans = NPUtil.duplicate2Dto3D(new float[2][2] { { 20, 4 }, { 1, 20 } }, num_resources);
 
             float[][] given_notknown_prior = NPUtil.tile2D(new float[2][1] { { 5 }, { 0.5 } }, 1, num_subparts);
             float[][] given_known_prior = NPUtil.tile2D(new float[2][1] { { 0.5 }, { 5 } }, 1, num_subparts);
             float[][] pi0_prior = new float[2, 1] { { 100 }, { 1 } };
 
+            float[][][] As = NPUtil.dirrnd3D(tile_trans);
 
         }
 
