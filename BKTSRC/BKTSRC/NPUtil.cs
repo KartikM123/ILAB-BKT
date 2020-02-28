@@ -9,6 +9,40 @@ namespace BKTSRC
         public NPUtil()
         {
         }
+        /// <summary>
+		/// Set all y values on some x axis to newVal float
+		/// </summary>
+		/// <param name="input"></param>
+		/// <param name="x">axis to iterate over</param>
+		/// <param name="newVal">value to replace</param>
+		/// <returns></returns>
+        public static float[][][] uniform2Dchange(float[][] input, int x, float newVal)
+        {
+            for (int i = 0; i < input[x].Length; i++)
+            {
+                input[x][i] = newVal;
+            }
+
+            return input;
+        }
+        /// <summary>
+		/// Uniformly define every (y,z) pair for every x in a 3D array
+		/// same as Arr[:,y,z] syntax in python
+		/// </summary>
+		/// <param name="input">array to iterate</param>
+		/// <param name="y">y value to change</param>
+		/// <param name="z">z value to change</param>
+		/// <param name="newVal">value to input</param>
+		/// <returns></returns>
+        public static float[][][] uniform3Dchange(float [][][] input, int y, int z, float newVal)
+		{
+            for(int i = 0; i < input.Length; i++)
+			{
+                input[i][y][z] = newVal;
+			}
+
+            return input;
+		}
 
         /// <summary>
 		/// Summ all elements on y (2nd) dim and clamp to a singular dim on y

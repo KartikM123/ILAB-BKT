@@ -20,5 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)TestDataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GammaDist.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RandomModelGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EMFit.cs" />
   </ItemGroup>
 </Project>

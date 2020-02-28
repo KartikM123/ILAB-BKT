@@ -98,10 +98,12 @@ namespace BKTSRC
 
             this.priorMatrix = new float [2][1]{{ 1 - this.pLo}, { this.pLo} };
 
-            //2. Init variables that are evaluated at every subpart answer
+            //Init variables that are evaluated at every subpart answer
             //probability that an answer is a slip or a guess. 
             this.slipsMatrix = NPUtil.init1D(num_subparts, this.pSlip);
             this.guessesMatrix = NPUtil.init1D(num_subparts, this.pGuess);
+
+            
         }
     }
 }
