@@ -25,6 +25,20 @@ namespace BKTSRC
         //number of subparts ocmpleted throughout interaction
         public int num_subparts;
 
+
+        //total size of observation sequence
+        public int[] observation_sequences_lengths;
+
+        //consider total observations made at a final step
+        public int total_observations;
+
+        //every observation should have a random resource associated with it
+        //(resource type shouldn't matter in our eval)
+        public int[] resources;
+
+        //calculate total interactions at every steps
+        public int[] starts;
+
         /// <summary>
 		/// Init studydata no affective state
 		/// </summary>

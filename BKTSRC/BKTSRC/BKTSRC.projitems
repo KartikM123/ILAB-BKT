@@ -22,5 +22,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)GammaDist.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RandomModelGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EMFit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EStepInfo.cs" />
   </ItemGroup>
 </Project>

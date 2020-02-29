@@ -14,7 +14,14 @@ namespace BKTSRC
         public string userID;
         public float pLo; //probability initally known
 
-        //Model Parameters which will be further fit
+        /// <summary>
+		/// Minimum possible value a float can be
+		/// </summary>
+        public const float MinValue = -3.402823E+38;
+
+        /// <summary>
+		/// Model parameters which can be used to find ideal fit
+		/// </summary>
         protected ModelParam modelParameters;
 
         /// <summary>
@@ -79,11 +86,15 @@ namespace BKTSRC
             //Get more comprehensive datastructure
             this.studyData = dataManager.GetData(this.name, this.modelParameters, num_of_students, observations_per_student);
 
+            float bestlikelihood = MinValue;
             for (int i = 0; i < number_of_fits; i++)
 			{
                 RandomModelGenerator randomModel = new RandomModelGenerator(studyData.num_resources, studyData.num_subparts);
                 //TODO EMFit
-                EMFit.fit(this.studyData, randomModel);
+                Tuple<RandomModelGenerator, float> fitInfo = EMFit.fit(this.studyData, randomModel);
+                RandomModelGenerator fitModel = fitInfo.Item1;
+                float loglikelihood = fitInfo.Item2;
+
 			}
         }
 

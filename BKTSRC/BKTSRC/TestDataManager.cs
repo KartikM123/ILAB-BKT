@@ -120,8 +120,13 @@ namespace BKTSRC
                 stars[i] = starts[i] - observation_sequences_lengths[i];
             }
 
-            return this.CreateIdealModel(modelParam, starts, observation_sequences_lengths, resources, total_observations);
+            StudyData studyData = this.CreateIdealModel(modelParam, starts, observation_sequences_lengths, resources, total_observations);
+            studyData.observation_sequences_lengths = observation_sequences_lengths;
+            studyData.total_observations = total_observations;
+            studyData.resources = resources;
+            studyData.starts = starts;
 
+            return studyData;
         }
     }
 }
